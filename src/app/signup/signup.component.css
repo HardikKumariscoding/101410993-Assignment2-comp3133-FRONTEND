@@ -1,0 +1,108 @@
+body {
+    background-color: #f0f0f0; /* A slightly darker gray for the body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .nav-links {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .nav-links a {
+    margin: 0 10px;
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .form-container {
+    background-color: white; /* White background for the form container */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Adjust width as needed */
+    text-align: center;
+  }
+  
+  .form-container h2 {
+    margin-bottom: 25px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: calc(100% - 20px); /* Full width minus padding and border */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: lightyellow; /* Light yellow background for input fields */
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: green;
+    box-shadow: 0 0 3px rgba(0, 128, 0, 0.5);
+  }
+  
+  button[type="submit"] {
+    background-color: green; /* Green button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Full width button */
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: darkgreen;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  p {
+    margin-top: 25px;
+    text-align: center;
+    color: #777;
+  }
+  
+  p a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }

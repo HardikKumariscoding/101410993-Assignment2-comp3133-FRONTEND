@@ -1,0 +1,44 @@
+<h2>Employee List</h2>
+
+<div>
+    <label for="department">Department:</label>
+    <input type="text" id="department" [(ngModel)]="department">
+
+    <label for="designation">Position:</label>
+    <input type="text" id="designation" [(ngModel)]="designation">
+
+    <button (click)="searchEmployees()">Search</button>
+</div>
+
+<div *ngIf="loading">Loading employees...</div>
+<div *ngIf="error">Error loading employees: {{ error | json }}</div>
+
+<table *ngIf="!loading && !error && employees.length > 0">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees" [attr.data-employee-id]="employee.id">
+            <td>{{ employee.first_name }}</td>
+            <td>{{ employee.last_name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>
+                <button [routerLink]="['/employees/detail', employee.id]">View</button>
+                <button [routerLink]="['/employees/edit', employee.id]">Update</button>
+                <button (click)="confirmDelete(employee.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!loading && !error && employees.length === 0">
+    No employees found.
+</div>
+
+<button routerLink="/employees/create">Add Employee</button>
+<button (click)="refreshList()" *ngIf="!loading">Refresh List</button>

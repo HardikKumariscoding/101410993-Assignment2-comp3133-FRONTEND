@@ -1,0 +1,12 @@
+<nav>
+  <a routerLink="/employees" routerLinkActive="active">Employees</a>
+  <span *ngIf="!isAuthenticated()"> | </span>
+  <a routerLink="/login" routerLinkActive="active" *ngIf="!isAuthenticated()">Login</a>
+  <span *ngIf="!isAuthenticated()"> | </span>
+  <a routerLink="/signup" routerLinkActive="active" *ngIf="!isAuthenticated()">Signup</a>
+  <button (click)="logout()" *ngIf="isAuthenticated()">Logout</button>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

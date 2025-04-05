@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(231, 226, 226); /* Light gray background for body */
+  }
+  
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Center vertically */
+  }
+  
+  .form-container {
+    background-color: white; /* White background for the box */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Adjust width as needed */
+    text-align: center; /* Center text content */
+  }
+  
+  .form-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left; /* Align labels left */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Make labels bold */
+  }
+  
+  p {
+    margin: 5px 0; /* Add spacing to paragraphs */
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: green; /* Green button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Full width buttons */
+    margin-bottom: 10px; /* Add spacing between buttons */
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

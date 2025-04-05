@@ -1,0 +1,61 @@
+<div class="page-container">
+  <div class="form-container">
+    <h2>Employee Details</h2>
+
+    <div *ngIf="loading">Loading employee details...</div>
+    <div *ngIf="error">Error loading employee details: {{ error | json }}</div>
+
+    <div *ngIf="!loading && !error && employee">
+      <div class="form-group">
+        <label>ID:</label>
+        <p>{{ employee.id }}</p>
+      </div>
+      <div class="form-group">
+        <label>First Name:</label>
+        <p>{{ employee.first_name }}</p>
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label>
+        <p>{{ employee.last_name }}</p>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <p>{{ employee.email }}</p>
+      </div>
+      <div class="form-group">
+        <label>Gender:</label>
+        <p>{{ employee.gender }}</p>
+      </div>
+      <div class="form-group">
+        <label>Designation:</label>
+        <p>{{ employee.designation }}</p>
+      </div>
+      <div class="form-group">
+        <label>Salary:</label>
+        <p>{{ employee.salary }}</p>
+      </div>
+      <div class="form-group">
+        <label>Date of Joining:</label>
+        <p>{{ employee.date_of_joining }}</p>
+      </div>
+      <div class="form-group">
+        <label>Department:</label>
+        <p>{{ employee.department }}</p>
+      </div>
+      <div class="form-group">
+        <label>Photo:</label>
+        <p *ngIf="employee.employee_photo">
+          <img [src]="employee.employee_photo" alt="Employee Photo" style="max-width: 200px;">
+        </p>
+        <p *ngIf="!employee.employee_photo">
+          No photo available.
+        </p>
+      </div>
+      <div class="button-group">
+        <button [routerLink]="['/employees/edit', employee.id]">Edit Employee</button>
+        <button (click)="deleteEmployee(employee.id)">Delete Employee</button>
+        <button routerLink="/employees">Back to List</button>
+      </div>
+    </div>
+  </div>
+</div>

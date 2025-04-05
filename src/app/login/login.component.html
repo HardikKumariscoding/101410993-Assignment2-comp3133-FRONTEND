@@ -1,0 +1,23 @@
+<header>
+  <h1>Employee Management App</h1>
+</header>
+
+<div class="form-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Email</label>
+      <input type="text" id="username" formControlName="username" placeholder="hardik1@gmail.com">
+    </div>
+    <div class="form-group">
+      <label for="password">Enter your password</label>
+      <input type="password" id="password" formControlName="password">
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid || loading">
+      <span *ngIf="!loading">Login</span>
+      <span *ngIf="loading">Logging in...</span>
+    </button>
+  </form>
+  <p>Don't have an account?   <a routerLink="/signup" routerLinkActive="active">Signup</a>
+  </p>
+</div>

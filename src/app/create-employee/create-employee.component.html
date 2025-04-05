@@ -1,0 +1,86 @@
+<div class="page-container">
+  <div class="form-container">
+    <h2>Add Employee</h2>
+
+    <div *ngIf="loading">Creating employee...</div>
+    <div *ngIf="error">Error creating employee: {{ error | json }}</div>
+
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" *ngIf="!loading">
+      <div class="form-group">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" formControlName="first_name">
+        <div *ngIf="createForm.get('first_name')?.invalid && (createForm.get('first_name')?.dirty || createForm.get('first_name')?.touched)">
+          <div *ngIf="createForm.get('first_name')?.errors?.['required']">First Name is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" formControlName="last_name">
+        <div *ngIf="createForm.get('last_name')?.invalid && (createForm.get('last_name')?.dirty || createForm.get('last_name')?.touched)">
+          <div *ngIf="createForm.get('last_name')?.errors?.['required']">Last Name is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email">
+        <div *ngIf="createForm.get('email')?.invalid && (createForm.get('email')?.dirty || createForm.get('email')?.touched)">
+          <div *ngIf="createForm.get('email')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="createForm.get('email')?.errors?.['email']">Invalid email format.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" formControlName="gender">
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" formControlName="designation">
+        <div *ngIf="createForm.get('designation')?.invalid && (createForm.get('designation')?.dirty || createForm.get('designation')?.touched)">
+          <div *ngIf="createForm.get('designation')?.errors?.['required']">Designation is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" formControlName="salary">
+        <div *ngIf="createForm.get('salary')?.invalid && (createForm.get('salary')?.dirty || createForm.get('salary')?.touched)">
+          <div *ngIf="createForm.get('salary')?.errors?.['required']">Salary is required.</div>
+          <div *ngIf="createForm.get('salary')?.errors?.['min']">Salary must be at least 1000.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="date_of_joining">Date of Joining:</label>
+        <input type="date" id="date_of_joining" formControlName="date_of_joining">
+        <div *ngIf="createForm.get('date_of_joining')?.invalid && (createForm.get('date_of_joining')?.dirty || createForm.get('date_of_joining')?.touched)">
+          <div *ngIf="createForm.get('date_of_joining')?.errors?.['required']">Date of Joining is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <input type="text" id="department" formControlName="department">
+        <div *ngIf="createForm.get('department')?.invalid && (createForm.get('department')?.dirty || createForm.get('department')?.touched)">
+          <div *ngIf="createForm.get('department')?.errors?.['required']">Department is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="employee_photo">Employee Photo URL (Optional):</label>
+        <input type="text" id="employee_photo" formControlName="employee_photo">
+      </div>
+
+      <div class="button-group">
+        <button type="submit" [disabled]="loading">
+          <span *ngIf="!loading">Create Employee</span>
+          <span *ngIf="loading">Creating...</span>
+        </button>
+        <button type="button" (click)="onCancel()" [disabled]="loading">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
