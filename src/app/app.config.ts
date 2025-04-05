@@ -7,7 +7,7 @@ import { HttpLink } from 'apollo-angular/http';
 import { setContext } from '@apollo/client/link/context';
 import { Apollo, APOLLO_OPTIONS } from 'apollo-angular';
 
-const uri = 'https://one01410993-assign2-comp3133-backend.onrender.com/graphql'; 
+const uri = 'https://one01410993-assignment2-comp3133-backend.onrender.com/graphql'; 
 
 export const appConfig: ApplicationConfig = {
     providers: [
